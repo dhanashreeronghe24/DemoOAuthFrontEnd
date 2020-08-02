@@ -1,0 +1,32 @@
+<div class="submit-form">
+  <div *ngIf="!isLoggedIn">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        required
+        [(ngModel)]="employee.username"
+        name="username"
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        class="form-control"
+        id="password"
+        required
+        [(ngModel)]="employee.password"
+        name="password"
+      />
+    </div>
+     
+    <button (click)="loginEmployee()" class="btn btn-success">Login</button>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <h4>You submitted successfully! {{roles}}</h4>
+    <!-- <button class="btn btn-success" (click)="newEmplpoyee()">Login</button> -->
+  </div>
+</div>
