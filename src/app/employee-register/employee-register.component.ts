@@ -13,11 +13,17 @@ export class EmployeeRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  roles = [
+    {id: 1, name: "emp"},
+    {id: 2, name: "manager"}
+  ];
+ selectedValue = null;
+
   employee = {
     username: "",
     email: "",
     password: "",
-    empRole: ["emp"]
+    empRole: []
   }
   submitted = false;
   errored = false;
@@ -25,12 +31,14 @@ export class EmployeeRegisterComponent implements OnInit {
   
 
   registerEmployee() {
+    console.log(this.selectedValue)
     const request = {
       username: this.employee.username,
       email: this.employee.email,
       password: this.employee.password,
-      empRole: ["emp"]
+      empRole: [""+this.selectedValue+""]
     }
+    console.log("request"+JSON.stringify(request))
     this.authService.registerEmployee(request)
       .subscribe(
         response => {
@@ -53,7 +61,7 @@ export class EmployeeRegisterComponent implements OnInit {
       username: "",
       email: "",
       password: "",
-      empRole: ["emp"]
+      empRole: [""]
     };
   }
 
