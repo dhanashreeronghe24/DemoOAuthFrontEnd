@@ -36,7 +36,7 @@ export class EmployeeLoginComponent implements OnInit {
       .subscribe(
         response => {
 
-          console.log("response : "+ JSON.stringify(response))
+          //console.log("response : "+ JSON.stringify(response))
           this.tokenStorage.setToken(response.token);
           this.tokenStorage.setUser(response);
   
